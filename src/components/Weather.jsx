@@ -42,10 +42,10 @@ export default function Weather() {
       <span className="title">Weather App</span>
       <br/>
       <form>
-        <input type='text' name='city' placeholder='city' onChange={e => handleChange(e)}  /> 
+        <input id='city-autocomplete' type='text' name='city' placeholder='city' onChange={e => handleChange(e)}  /> 
         &nbsp; &nbsp; &nbsp;
-        <input type='text' name='country' placeholder='country' onChange={e => handleChange(e)} />
-        <button className="getweather" onClick={(e) => weatherData(e)} >Submit</button>
+        <input id='country-autocomplete' type='text' name='country' placeholder='country' onChange={e => handleChange(e)} />
+        <button className="getweather" onClick={(e) => weatherData(e)} >Search</button>
       </form>
       {
         weather.data !== undefined ? (
