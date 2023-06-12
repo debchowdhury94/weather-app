@@ -17,13 +17,21 @@ export default function Weather() {
     if (form.city === "") {
       alert("Add city name");
     } else {
-      const data = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?q=${form.city},${form.country}&APPID=${APIKEY}`
-      )
-        .then((res) => res.json())
-        .then((data) => data);
+      try {
+        const data = await fetch(
+          `https://api.openweathermap.org/data/2.5/weather?q=${form.city},${form.country}&APPID=${APIKEY}`
+        )
+          .then((res) => res.json())
+          .then((data) => data);
 
-      setWeather({ data: data });
+        if (data.cod && data.cod !== 200) {
+          throw new Error("City Not Found");
+        }
+
+        setWeather({ data: data });
+      } catch (error) {
+        alert("City not found! Please check the spelling.");
+      }
     }
   }
 
@@ -53,27 +61,19 @@ export default function Weather() {
             onChange={(e) => handleChange(e)}
           />
           &nbsp; &nbsp; &nbsp;
-          <input
-            id="country-autocomplete"
-            type="text"
-            name="country"
-            placeholder="country"
-            onChange={(e) => handleChange(e)}
-          />
           <button className="getweather" onClick={(e) => weatherData(e)}>
             Search
           </button>
+          {unit === "metric" ? (
+            <button className="switch-unit" onClick={() => setUnit("imperial")}>
+              <sup>o</sup>F
+            </button>
+          ) : (
+            <button className="switch-unit" onClick={() => setUnit("metric")}>
+              <sup>o</sup>C
+            </button>
+          )}
         </form>
-        <img src="../icons/01d.png" alt=""/>
-        {unit === "metric" ? (
-          <button className="switch-unit" onClick={() => setUnit("imperial")}>
-            <sup>o</sup>F
-          </button>
-        ) : (
-          <button className="switch-unit" onClick={() => setUnit("metric")}>
-            <sup>o</sup>C
-          </button>
-        )}
       </div>
 
       {weather.data !== undefined ? (

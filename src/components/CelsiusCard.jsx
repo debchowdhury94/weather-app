@@ -10,7 +10,11 @@ export default function CelsiusCard(props) {
           {data.name}, {data.sys.country}
         </span>
         <span className="cardsubtitle">
-          As of {new Date().toLocaleTimeString()}
+          as of{" "}
+          {new Date().toLocaleTimeString([], {
+            hour: "2-digit",
+            minute: "2-digit",
+          })}
         </span>
         <div className="center-temp">
           <h1>
@@ -18,7 +22,7 @@ export default function CelsiusCard(props) {
             <sup>o</sup>C
           </h1>
           <div className="icon-wrapper">
-            <img className="weather-icon" alt="" src="../resources/icons/02n.png" />
+            <img className="weather-icon" alt="" src={icon_url} />
             <span className="weather-main">{data.weather[0].main}</span>
           </div>
         </div>
@@ -71,12 +75,15 @@ export default function CelsiusCard(props) {
 
         <div className="section2">
           <table className="table2">
+            <tbody>
               <tr>
                 <td>
                   <h4>Wind</h4>
                 </td>
                 <td>
-                  <span>{(Math.floor((data.wind.speed * 18) / 5)).toFixed(1)} km/hr</span>
+                  <span>
+                    {Math.floor((data.wind.speed * 18) / 5).toFixed(1)} km/hr
+                  </span>
                 </td>
               </tr>
               <tr>
@@ -96,7 +103,10 @@ export default function CelsiusCard(props) {
                 </td>
                 <td>
                   <span>
-                    {new Date(data.sys.sunrise * 1000).toLocaleTimeString()}
+                    {new Date(data.sys.sunrise * 1000).toLocaleTimeString([], {
+                      hour: "2-digit",
+                      minute: "2-digit",
+                    })}
                   </span>
                 </td>
               </tr>
@@ -106,10 +116,14 @@ export default function CelsiusCard(props) {
                 </td>
                 <td>
                   <span>
-                    {new Date(data.sys.sunset * 1000).toLocaleTimeString()}
+                    {new Date(data.sys.sunset * 1000).toLocaleTimeString([], {
+                      hour: "2-digit",
+                      minute: "2-digit",
+                    })}
                   </span>
                 </td>
               </tr>
+            </tbody>
           </table>
         </div>
       </div>
