@@ -1,12 +1,11 @@
-import logo from './logo.svg';
 import './App.css';
+import Weather from './components/Weather';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        
-      </header>
+      <img className='background-image' src='./pexels-jéshoots-3590.jpg' alt=''/>
+      <Weather />
     </div>
   );
 }
