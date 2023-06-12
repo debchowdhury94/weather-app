@@ -6,8 +6,9 @@ import FahrenheitCard from "./FahrenheitCard";
 export default function DisplayWeather(props) {
   const { data, unit } = props;
   console.log(data);
-
-  const icon_url = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
+  const icon_url = `../images/${data.weather[0].icon}.png`;
+  console.log(icon_url);
+  //const icon_url = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
 
   return (
     <div className="displayweather">

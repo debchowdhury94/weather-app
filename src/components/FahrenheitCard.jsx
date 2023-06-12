@@ -12,12 +12,17 @@ const {data, icon_url} = props;
         <span className="cardsubtitle">
           As of {new Date().toLocaleTimeString()}
         </span>
+        <div className="center-temp">
         <h1>
-          {(Math.floor(data.main.temp - 273.15)) * (1.8) + 32}
+          {((data.main.temp - 273.15) * (1.8) + 32).toFixed(1)}
           <sup>o</sup>F
         </h1>
-        <span className="weather-main">{data.weather[0].main}</span>
-        <img className="weather-icon" alt="" src={icon_url} />
+        <div className="icon-wrapper">
+          <img className="weather-icon" alt="" src={icon_url} />
+          <span className="weather-main">{data.weather[0].main}</span>
+        </div>
+        </div>
+       
         <span className="weather-description">
           {data.weather[0].description}
         </span>
@@ -25,15 +30,15 @@ const {data, icon_url} = props;
 
       <div className="weatherdetails">
         <div className="section1">
-          <table>
+          <table className="table1">
             <tr>
               <td>
                 <h4>High/Low</h4>
               </td>
               <td>
                 <span>
-                {(Math.floor(data.main.temp_max - 273.15)) * (1.8) + 32}/{" "}
-                {(Math.floor(data.main.temp_min - 273.15)) * (1.8) + 32} <sup>o</sup>F
+                {((Math.floor(data.main.temp_max - 273.15)) * (1.8) + 32).toFixed(1)}/{" "}
+                {((Math.floor(data.main.temp_min - 273.15)) * (1.8) + 32).toFixed(1)} <sup>o</sup>F
                 </span>
               </td>
             </tr>
@@ -58,21 +63,20 @@ const {data, icon_url} = props;
                 <h4>Visibility</h4>
               </td>
               <td>
-                <span>{(data.visibility/1000) / 1.6} mi</span>
+                <span>{(data.visibility/1600).toFixed(1)} mi</span>
               </td>
             </tr>
           </table>
         </div>
 
         <div className="section2">
-          <table>
-            <tbody>
+          <table className="table2">
               <tr>
                 <td>
                   <h4>Wind</h4>
                 </td>
                 <td>
-                  <span>{(Math.floor((data.wind.speed * 18) / 5))/1.6} mi/hr</span>
+                  <span>{((Math.floor((data.wind.speed * 18) / 5))/1.6).toFixed(1)} mi/hr</span>
                 </td>
               </tr>
               <tr>
@@ -106,7 +110,6 @@ const {data, icon_url} = props;
                   </span>
                 </td>
               </tr>
-            </tbody>
           </table>
         </div>
       </div>

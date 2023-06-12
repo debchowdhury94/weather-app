@@ -41,7 +41,7 @@ export default function Weather() {
 
   return (
     <div className="weather">
-      <span className="title">Weather App</span>
+      <h5 className="title">The Weather App</h5>
       <br />
       <div className="search-bar">
         <form>
@@ -64,6 +64,7 @@ export default function Weather() {
             Search
           </button>
         </form>
+        <img src="../icons/01d.png" alt=""/>
         {unit === "metric" ? (
           <button className="switch-unit" onClick={() => setUnit("imperial")}>
             <sup>o</sup>F

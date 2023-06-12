@@ -1,86 +1,115 @@
 .displayweather {
-    margin-top: 20px;
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-  }
+  margin-top: 20px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+}
+
+.displayweather .maincard {
+  width: 540px;
+  margin-top: 20px;
+  left: 40px;
+  align-self: center;
+  padding: 50px;
+  border-radius: 20px;
+  position: relative;
+  background: rgba(248, 249, 250, 0.4);
+  box-shadow: 0 0 20px rgba(2, 41, 60, 0.7);
+  border: 1px solid black;
+}
+
+.displayweather .maincard .cardtitle {
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  font-size: 1.5rem;
+}
+
+.displayweather .maincard .cardsubtitle {
+  position: absolute;
+  left: 20px;
+
+  color: rgb(35, 120, 189);
+  margin-top: -8px;
+}
+
+.displayweather .center-temp {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 0;
+  height: 100px;
+}
+.displayweather h1 {
+  margin: 0;
+  font-size: 5rem;
+}
+
+.displayweather .icon-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  margin: 0;
+  margin-left: -80px;
+}
+
+.displayweather .weather-icon {
+  height:100%;
+  width: 100%;
   
-  .displayweather .maincard {
-    width: 500px;
-    margin-top: 20px;
-    align-self: center;
-    padding: 50px;
-    border-radius: 20px;
-    position: relative;
-    background: rgb(245, 242, 242);
-    border: 1px solid black;
-  }
-  
-  .displayweather .maincard .cardtitle {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    font-size: 1.5rem;
-  }
-  
-  .displayweather .maincard .cardsubtitle {
-    position: absolute;
-    left: 10px;
-  
-    color: grey;
-    margin-top: -8px;
-  }
-  .displayweather h1 {
-    font-size: 5rem;
-    margin: -10px;
-    margin-left: -150px;
-  }
-  
-  .displayweather .weather-icon {
-    width: 100px;
-  
-    position: absolute;
-    top: 50px;
-  }
-  
-  .displayweather .weather-main {
-    position: absolute;
-  
-    top: 120px;
-    left: 310px;
-    font-weight: 500;
-    font-size: 1.2rem;
-  }
-  
-  .displayweather .weather-description {
-    position: absolute;
-    left: 10px;
-    font-size: 1.4rem;
-  }
-  .displayweather .weatherdetails {
-    margin-left: 50px;
-    margin-right: 50px;
-  
-    display: grid;
-    grid-template-columns: 50% 50%;
-    grid-template-rows: auto;
-    grid-gap: 20px;
-  }
-  .displayweather .weatherdetails .section1 {
-    justify-self: right;
-    width: 300px;
-  }
-  
-  h4 {
-    text-align: left;
-    margin-right: 30px;
-    font-size: 1.2rem;
-  }
-  
-  td {
-    border-bottom: 2px dashed grey;
-  }
-  
-  .displayweather .weatherdetails span {
-    font-size: 1.2rem;
-  }
+}
+
+.displayweather .weather-main {
+  font-weight: 500;
+  font-size: 1.2rem;
+  margin-top: -18px;
+}
+
+.displayweather .weather-description {
+  position: absolute;
+  left: 15px;
+  bottom: 8px;
+  font-size: 1.4rem;
+}
+.displayweather .weatherdetails {
+  margin-left: 50px;
+  margin-right: 50px;
+
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: auto;
+  grid-gap: 20px;
+}
+.displayweather .weatherdetails .section1, .displayweather .weatherdetails .section2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.displayweather .table1,  .displayweather .table2{
+  margin-top: 10px;
+  box-shadow: 0 0 10px rgba(3, 60, 88, 0.2);
+  border-radius: 0.4rem;
+  padding-right: 5px;
+}
+
+h4 {
+  text-align: left;
+  margin-left: 10px;
+  margin-right: 30px;
+  font-size: 1.2rem;
+}
+
+
+.displayweather .weatherdetails span {
+  font-size: 1.2rem;
+}
+
+.table1 tr, .table2 tr {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 10px;
+}
