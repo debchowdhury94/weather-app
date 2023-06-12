@@ -35,6 +35,7 @@ export default function FahrenheitCard(props) {
       <div className="weatherdetails">
         <div className="section1">
           <table className="table1">
+            <tbody>
             <tr>
               <td>
                 <h4>High/Low</h4>
@@ -76,6 +77,7 @@ export default function FahrenheitCard(props) {
                 <span>{(data.visibility / 1600).toFixed(1)} mi</span>
               </td>
             </tr>
+            </tbody>
           </table>
         </div>
 

@@ -64,7 +64,8 @@ export default function Weather() {
           <button className="getweather" onClick={(e) => weatherData(e)}>
             Search
           </button>
-          {unit === "metric" ? (
+        </form>
+        {unit === "metric" ? (
             <button className="switch-unit" onClick={() => setUnit("imperial")}>
               <sup>o</sup>F
             </button>
@@ -73,7 +74,6 @@ export default function Weather() {
               <sup>o</sup>C
             </button>
           )}
-        </form>
       </div>
 
       {weather.data !== undefined ? (
